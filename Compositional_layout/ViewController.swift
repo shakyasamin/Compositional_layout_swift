@@ -32,11 +32,15 @@ class ViewController: UIViewController {
         
         //Group
         
-        let group = CompositionalLayout.createGroup(alignment: .horizontal, width: .fractionalWidth(1), height: .fractionalHeight(0.3), items:  [item, verticalGroup])
+        let horizontalGroup = CompositionalLayout.createGroup(alignment: .horizontal, width: .fractionalWidth(1), height: .fractionalHeight(0.6), items:  [item, verticalGroup])
+        
+        let mainItem = CompositionalLayout.createItem(width: .fractionalWidth(1), height: .fractionalHeight(0.4), spacing: 10)
+        
+        let mainGroup = CompositionalLayout.createGroup(alignment: .vertical, width: .fractionalWidth(1), height: .fractionalHeight(0.5), items: [mainItem , horizontalGroup])
         
         //Section
         
-        let section = NSCollectionLayoutSection(group: group)
+        let section = NSCollectionLayoutSection(group: mainGroup)
         
         //return
         
